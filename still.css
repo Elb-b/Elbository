@@ -1,0 +1,95 @@
+/* Базовые сбросы и удобства */
+* { box-sizing: border-box; }
+html,body { height:100%; margin:0; font-family: system-ui, Arial, sans-serif; background:#666; color:#111; }
+
+/* Обёртка — фоновые декоративные элементы расположим на .page */
+.page { min-height:100vh; position:relative; }
+
+/* Центрируем контент, даём паддинги для мобильных */
+.wrap { padding:20px; max-width:1200px; margin:0 auto; }
+
+/* Основной блок. По умолчанию — обычный поток (мобильный) */
+.main { display:block; }
+
+/* Обычные стили колонок для мобильных — блоки идут сверху вниз */
+.col { margin-bottom:20px; }
+
+/* Профиль */
+.profile { display:flex; align-items:center; gap:12px; background:rgba(255,255,255,0.06); border-radius:18px; padding:8px 12px; }
+.avatar img { width:48px; height:48px; object-fit:cover; border-radius:50%; display:block; }
+.name { font-weight:700; color:#fff; }
+.social { font-size:12px; color:#ddd; }
+.menu { margin-left:auto; background:#c84b30; color:#fff; border-radius:50%; width:36px; height:36px; border:0; }
+
+/* Hero */
+.hero .title { font-size:36px; line-height:0.9; margin:18px 0; color:#fff; }
+.hero small { display:block; font-size:13px; color:#f0dede; }
+
+/* Промо-карта (чёрная карточка) */
+.promo-card {
+  background:#0b0b0b; color:#fff; border-radius:14px; padding:18px; overflow:hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+.promo-title { font-size:34px; line-height:1; margin:0 0 12px; letter-spacing:1px; }
+.promo-card .photo img { width:100%; height:auto; display:block; border-radius:6px; }
+
+/* Sidebar на мобильных — просто белые блоки */
+.right .block { background:#fff; border-radius:12px; padding:14px; margin-bottom:14px; }
+.right .block h3 { margin:0 0 10px; font-size:18px; color:#111; }
+
+/* Тумбы работ */
+.thumbs img { width:48%; height:auto; margin-right:4%; display:inline-block; border-radius:8px; }
+.thumbs img:last-child { margin-right:0; }
+
+/* Декоратив карточки внутри правой колонки */
+.service-card { background:#c84b30; color:#fff; border-radius:10px; padding:16px; }
+
+/* Мелкие аксесcуары */
+.cta { display:inline-block; margin-top:12px; color:#fff; text-decoration:none; font-weight:600; }
+
+/* Декоративные большие круги в фоне (за левым столбцом) */
+.page::before, .page::after {
+  content:""; position:absolute; border-radius:50%; z-index:0;
+  background:#c84b30; opacity:0.95;
+}
+.page::before { width:260px; height:260px; left:-80px; top:120px; }
+.page::after { width:180px; height:180px; left:40px; bottom:-40px; }
+
+/* Позиционируем содержимое выше фоновых фигур */
+.wrap, .wrap * { position:relative; z-index:1; }
+
+/* ---------- Десктопная компоновка ---------- */
+@media (min-width:768px) {
+  .wrap { padding:40px; }
+
+  /* Grid: левая колонка гибкая, правая — фиксированная */
+  .main {
+    display:grid;
+    grid-template-columns: 1fr 360px;
+    gap:36px;
+    align-items:start;
+  }
+
+  /* Сделаем правую колонку выглядящей как отдельный вертикальный столбец */
+  .right { position:relative; }
+  .right .block { background:#fff; border-radius:18px; padding:20px; }
+
+  /* Немного увеличим размер заголовков */
+  .hero .title { font-size:56px; }
+
+  /* Подвинем фоновые круги так, чтобы они частично перекрывали левую колонку */
+  .page::before { left:20px; top:60px; width:420px; height:420px; }
+  .page::after { left:140px; bottom:20px; width:300px; height:300px; opacity:0.95; }
+
+  /* Зададим общий фон правой колонки в виде белой полосы (если нужно) */
+  /* Можно также задать визуальное разделение фонов: правая колонка — светлая полоса */
+  .main { background:transparent; }
+
+  /* Ограничение ширины карточки в левой колонке (чтобы не растягивалась сильно) */
+  .promo-card { max-width:720px; }
+}
+
+/* На очень больших экранах (чтобы правый столбец не растягивался при контейнере 1200px) */
+@media (min-width:1200px) {
+  .main { gap:48px; }
+}

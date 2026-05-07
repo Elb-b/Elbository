@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Промо — пример</title>
+  <link rel="stylesheet" href="still.css">
+</head>
+<body>
+  <div class="page"> <!-- фоновые элементы через псевдоэлементы -->
+    <div class="wrap"> <!-- центрированный контейнер, max-width:1200px -->
+      <main class="main"> <!-- основная область, на десктопе — grid -->
+        <section class="col left">
+          <header class="profile">
+            <div class="avatar"><img src="jenshina.jpg" alt="" /></div>
+            <div class="who">
+              <div class="name">Эля | Веб-дизайнер</div>
+              <div class="social">@iluvelya</div>
+            </div>
+            <button class="menu" aria-label="Меню">☰</button>
+          </header>
+
+          <section class="hero">
+            <h1 class="title">ТАПЛИНК<br><small>для веб‑дизайнера</small></h1>
+          </section>
+
+          <article class="promo-card">
+            <h2 class="promo-title">СОЗДАЮ САЙТЫ, КОТОРЫЕ ПРОДАЮТ.</h2>
+            <div class="photo"><img src="photo.jpg" alt="" /></div>
+            <a class="cta" href="#services">ПЕРЕЙТИ К УСЛУГАМ →</a>
+          </article>
+        </section>
+
+        <aside class="col right" aria-label="Боковая колонка">
+          <section class="block">
+            <h3>ЧЕМ Я ПОМОГУ?</h3>
+            <div class="service-card"> <!-- стилизованная карточка -->
+              <div class="service-title">САЙТЫ</div>
+            </div>
+          </section>
+
+          <section class="block works">
+            <h3>МОИ РАБОТЫ</h3>
+            <div class="thumbs">
+              <img src="work1.jpg" alt="">
+              <img src="work2.jpg" alt="">
+            </div>
+          </section>
+
+          <section id="services" class="block">
+            <h3>УСЛУГИ</h3>
+            <div class="price-card">Дизайн‑макет • от 2 000 руб</div>
+          </section>
+        </aside>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
